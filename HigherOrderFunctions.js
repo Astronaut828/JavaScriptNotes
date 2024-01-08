@@ -1,7 +1,7 @@
 // Training File
 // Reviewing Notes and writing them out.
 // for training purposes i will import the SCRIPTS array from the Book Eloquent JavaScript.
-const SCRIPTS = require("./Eloquent_JS/Scripts.js");
+const SCRIPTS = require("./Scripts.js");
 // (alias) var SCRIPTS: {
 //     name: string;
 //     ranges: number[][];
