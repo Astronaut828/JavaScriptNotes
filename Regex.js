@@ -135,3 +135,89 @@ re = /\b\w{3}\b\s\d{2}/; // matches a three-letter word followed by a whitespace
 var str = "cat 12";
 var result = re.test(str);
 console.log(result); // true
+
+// Special Characters
+// Special characters are characters that have a special meaning in regular expressions.
+// The '+' and '*' characters are used to match one or more occurrences of a character. '*' matches zero or more occurrences.
+// The '\' character is used to escape special characters so they are treated as literal characters.
+// The '[]' characters are used to create a character set.
+// The '[^]' characters are used to create a negated character set.
+// The '-' character is used to create a character range.
+// The '{}' characters are used to create a repeating character.
+// The '.' character is used to match any character except for a newline.
+// The '^' character is used to match the start of the input.
+// The '$' character is used to match the end of the input.
+// The '|' character is used to create a logical OR in a pattern.
+// The '?' character is used to match zero or one occurrence of a character.
+// The '()' characters are used to create a capturing group.
+
+re = /hello?/; // matches hello or hell, makes the last character optional
+var str = "hell";
+var result = re.test(str);
+console.log(result); // true
+
+re = /car./; // matches car followed by any character
+var str = "cars";
+var result = re.test(str);
+console.log(result); // true
+
+re = /.+/; // matches one or more occurrences of any character
+var str = "abckgiu090979tuyfgjhoip[]khikg";
+var result = re.test(str);
+console.log(result); // true
+
+re = /1234*/; // matches 123 followed by zero or more occurrences of the character 4, but also makes 4 optional.
+var str = "123444444";
+var result = re.test(str);
+console.log(result); // true
+// It is important to note that the '*' character matches zero or more occurrences of the character that precedes it.
+
+// To escape a special character, we use the backslash (\) character.
+re = /1234\*/; // matches 1234 followed by the character *
+var str = "1234*";
+var result = re.test(str);
+console.log(result); // true
+
+// The '^' character is used to match the start of the input.
+re = /^[a-z]{5}/; // matches any five-letter word at the start of the input
+var str = "hello Joe";
+var result = re.test(str);
+console.log(result); // true
+var str = "1. Hello Joe";
+var result = re.test(str);
+console.log(result); // false
+
+// The '$' character is used to match the end of the input.
+re = /[a-z]{5}$/; // matches any five-letter word at the end of the input
+var str = "hello Joe";
+var result = re.test(str);
+console.log(result); // false 
+var str = "hello Jenny";
+var result = re.test(str);
+console.log(result); // true
+
+re = /^[0-9]{5}$/; // matches any five-digit number exactly
+var str = "12345";
+var result = re.test(str);
+console.log(result); // true
+var str = "A23456"; 
+var result = re.test(str);
+console.log(result); // false
+
+// The '|' character is used to create a logical OR in a pattern.
+re = /cat|dog/; // matches cat or dog
+var str = "The dog is barking";
+var str2 = "The cat is meowing";
+var result = re.test(str);
+console.log(result); // true
+var result = re.test(str2);
+console.log(result); // true
+
+reg = /(c|b|r)at/; // matches cat, bat, rat
+var str = "cat";    
+var str2 = "bat";
+var result = reg.test(str);
+console.log(result); // true
+var result = reg.test(str2);
+console.log(result); // true
+
